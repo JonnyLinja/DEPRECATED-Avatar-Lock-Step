@@ -1,5 +1,7 @@
 This is the source code of a simple bare-bones multiplayer lock step synchronization system. It is no longer being used because the rollback system makes more sense for what I'm trying to build. This code is here only for reference purposes.
 
+Note that the server only plays a game for the first two players that join. Everyone must disconnect from the server (as in, close the window) before a new game is started. This was a quick hack to begin coding.
+
 There is an infinite waiting for commands glitch that is a result of my specific implementation. Instead of pausing the game entirely when waiting for commands, I store commands while the game is paused and ratio them once the game is unpaused. Unfortunately, this causes the infinite wait problem as after one client waits, it causes the to wait, and so on and so forth.
 
 The current implemented hack solution to the problem assumes the pings of both clients are the same (for example, you're playing on the same network). Later on, a more complete solution could be implemented on the server whereby it determines the ping of both players and delays a player message as needed.
